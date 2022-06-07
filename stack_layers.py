@@ -12,7 +12,7 @@ if __name__ == "__main__":
     if "output" not in os.listdir():
         os.mkdir("output")
 
-    for tokenId in range(N_SAMPLES):
+    for sample in range(N_SAMPLES):
         subfolder = os.listdir(f"layers/{FOLDERS[0]}")
         if ".DS_Store" in subfolder:
             subfolder.remove(".DS_Store")
@@ -32,4 +32,5 @@ if __name__ == "__main__":
 
             base_layer.paste(next_layer, (0, 0), next_layer)
 
-        base_layer.save(f"output/sample_{tokenId}.png", "PNG")
+        print(f"* Saving {sample+1}/{N_SAMPLES}")
+        base_layer.save(f"output/sample_{sample+1}.png", "PNG")
